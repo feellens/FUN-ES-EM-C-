@@ -1,0 +1,44 @@
+#include <iostream>
+#include "AUTB.h"
+using namespace std;
+
+// Função para calcular o fatorial de um número
+int fatorial(int n){
+    if(n == 1){
+        return 1;
+    }
+    return n * fatorial(n-1);
+}
+
+// Função para trocar os valores de duas variáveis usando referências
+void troca(int &a, int &b){
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+
+// Função principal
+int main(){
+    // Declaração e inicialização de duas variáveis
+    int a = 5, b = 6;
+
+    // Chamada da função troca para trocar os valores de a e b
+    troca(b, a);
+
+    // Saída para o console dos valores de a e b após a troca
+    cout << a << b;
+
+    // Comentários indicando chamadas de funções que estão comentadas
+    //cout << dobro(2);
+    //extenso(30,10,2023);
+    //cout << pn(-35.25);
+    //cout << qp(3);
+    //cout << vEsfera(12);
+    //cout << converteSegundos(1,1,1);
+    //cout << fatorial(17);
+
+    // Retorno 0 indicando que o programa foi executado com sucesso
+    return 0;
+}
+
