@@ -1,0 +1,84 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+#include <stdio.h>
+using namespace std;
+
+// Função que calcula o volume de uma esfera com raio R.
+float vEsfera(float R){
+    // Calcula o volume da esfera usando a fórmula V = 4/3 * pi * R^3.
+    float V = 4.0/3.0 * M_PI * pow(R,3);
+    return V;
+}
+
+// Função que verifica se um número inteiro é um quadrado perfeito.
+int qp(int n){
+    // Se n for negativo, não é um quadrado perfeito.
+    if(n < 0){
+        return 0;
+    }
+    
+    // Calcula a raiz quadrada de n.
+    float rq = sqrt(n);
+    
+    // Verifica se a parte decimal da raiz quadrada é zero, indicando um número inteiro.
+    if(rq - int(rq) == 0){
+        return 1;  // É um quadrado perfeito.
+    }
+    
+    return 0;  // Não é um quadrado perfeito.
+}
+
+// Função que converte horas, minutos e segundos para o equivalente em segundos.
+int converteSegundos(int h, int m, int s){
+    int r;
+    r = s;
+    r += m * 60;
+    r += h * 3600;
+    return r;
+}
+
+// Função que converte uma data (dia, mês, ano) para uma representação por extenso.
+void extenso(int dia ,int mes, int ano ){
+    // Verifica se os valores dos parâmetros são válidos e imprime "Data inválida" se não forem.
+    if(dia < 1 or dia > 31 || mes < 1 or mes > 12 || ano < 1 or ano > 9999){
+        cout << "Data inválida";
+        return;
+    }
+    
+    // Nomes dos meses.
+    string m[12] = {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"};
+    string s;
+    char buffer[5];
+    
+    // Formatação da data por extenso.
+    sprintf(buffer, "%2d", dia);
+    s += buffer;
+    s += " de ";
+    s += m[mes-1];
+    s += " de ";
+    sprintf(buffer, "%4d", ano);
+    s += buffer;
+    
+    cout << s;
+}
+
+// Função que retorna o dobro.
+int dobro(int N){
+    int d;
+    d = N + N;
+    return d;
+}
+
+// Função que determina o sinal de um número.
+int pn(float n){
+    if (n > 0){
+        return 1;  // Positivo.
+    } else {
+        if (n < 0){
+            return -1;  // Negativo.
+        } else {
+            return 0;  // Zero.
+        }
+    }
+}
